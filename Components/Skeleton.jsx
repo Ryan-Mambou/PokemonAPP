@@ -1,0 +1,18 @@
+import React from 'react'
+import Image from 'next/image'
+
+function Skeleton() {
+  return (
+    <div>
+        <div className='flex flex-row bg-white shadow-lg border-r-4 w-[20rem] items-center gap-2 p-2'>
+            <div className='rounded-full bg-gray-400 w-[4.5rem] h-[4.5rem]'></div>
+            <div className='flex flex-col gap-2 w-9/12'>
+              <span className='w-11/12 bg-gray-300 h-2 rounded-full'></span>
+              <span className='w-9/12 bg-gray-300 h-2 rounded-full'></span>
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default Skeleton
