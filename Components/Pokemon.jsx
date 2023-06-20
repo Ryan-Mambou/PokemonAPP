@@ -1,11 +1,9 @@
 'use client'
 import React, { useState } from 'react'
 import Image from 'next/image'
-import pikachu from '../public/pikachu.png'
   
-
 function Pokemon({name, image}) {
-  const [isLoading, setIsLoading] = useState(true)
+ console.log(image)
   return (
     <div>
         <div className='flex flex-row cursor-pointer bg-green-300 shadow-lg border-r-4 w-[20rem] h-[6rem] gap-4 items-center p-2 rounded'>
