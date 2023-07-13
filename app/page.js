@@ -40,9 +40,9 @@ export default async function Page() {
   console.log(isLoading)
   
   return (
-    <div className="bg-blue-500">
+    <div className="">
   <Image src={pokemonLogo} alt="pokemon-logo" width={150} height={150} className='object-cover m-auto pt-4 mb-2' />
-  <div className='w-full md:w-10/12 m-auto flex mt-5 mb-5 flex-col md:grid md:grid-cols-2 md:grid-row-1 md:items-center gap-4 bg-yellow-300 items-center'>
+  <div className='w-full md:w-10/12 m-auto flex mt-5 mb-5 flex-col md:grid md:grid-cols-2 md:grid-row-1 md:items-center gap-4 items-center'>
   {isLoading ? <Skeleton number={10}/> : 
   pokemons?.map((pokemon, index) => 
     (
