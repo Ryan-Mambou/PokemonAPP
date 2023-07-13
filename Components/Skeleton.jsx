@@ -1,7 +1,8 @@
 import React from 'react'
-import Image from 'next/image'
 
 function Skeleton({number}) {
+
+  console.log(number)
   
   return (
     Array(number).fill(0).map((el, index) => (

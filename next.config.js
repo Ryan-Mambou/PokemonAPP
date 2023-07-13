@@ -1,7 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['pokeapi.co'],
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'assets.pokemon.com',
+          port: '',
+          pathname: '/assets/**',
+        },
+      ],
+      domains: ['pokeapi.co', 'assets.pokemon.com'],
       },
 }
 
