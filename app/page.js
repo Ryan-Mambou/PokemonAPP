@@ -31,9 +31,10 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-     <h2>Welcome to Brazil!</h2>
-     <div>
-      {status === 'loading' && <Skeleton number={10} />}
+     <Image src={pokemonLogo} alt='Pokemon logo' width={150} height={150} className='objet-cover'/>
+     <h2 className='mt-4'>Welcome to Brazil!</h2>
+     <div className='w-full md:w-10/12 m-auto flex mt-5 mb-5 flex-col md:grid md:grid-cols-3 md:grid-row-1 md:items-center gap-4 items-center'>
+      {status === 'loading' && <Skeleton number={15} />}
       {status === 'success' && pokemons?.map((pokemon, index) => <Pokemon 
       image={pokemon.imageUrl} 
       name={pokemon.name} 
