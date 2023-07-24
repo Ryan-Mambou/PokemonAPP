@@ -1,6 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import ReactQueryProvider from '@/Components/ReactQueryProvider'
+import ReactQueryProvider from '@/utils/ReactQueryProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 

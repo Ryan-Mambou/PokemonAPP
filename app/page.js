@@ -1,11 +1,9 @@
-"use client"
-import React, { useEffect, useState } from 'react'
+'use client'
 import Image from 'next/image'
-import Skeleton from '@/Components/Skeleton'
+import Skeleton from '@/components/Skeleton'
 import Pokemon from '@/Components/Pokemon'
 import pokemonLogo from '../public/pokemonLogo.png'
 import { useQuery } from '@tanstack/react-query'
-//import { getPokemons } from '@/Services/pokemonService'
 
 async function getPokemons(){
   const res = await fetch('https://pokeapi.co/api/v2/ability')
@@ -26,32 +24,22 @@ async function getPokemons(){
   return filtered
 }
 
+export default function Home() {
 
-export default async function Page() {
+  const {status, data : pokemons, error} = useQuery({ queryKey: ['pokemons'], queryFn: getPokemons })
+  console.log(pokemons)
 
- const {status, data : pokemons, error} = useQuery({
-  queryKey: 'pokemons', 
-  queryFn: getPokemons,
- })
- //const pokemons = await getPokemons();
- //const isLoading = false
-
-  console.log('pokemons', pokemons)
-  //console.log('data', data)
-  console.log(status)
-  
   return (
-    <div className="">
-  <Image src={pokemonLogo} alt="pokemon-logo" width={150} height={150} className='object-cover m-auto pt-4 mb-2' />
-  <div className='w-full md:w-10/12 m-auto flex mt-5 mb-5 flex-col md:grid md:grid-cols-2 md:grid-row-1 md:items-center gap-4 items-center'>
-  {status === 'loading' && <Skeleton number={10}/>} 
-  {status === 'success' && pokemons && pokemons.map((pokemon, index) => 
-    (
-      <Pokemon key={index} name={pokemon.name} image={pokemon.imageUrl}/>
-    )
-    )}
-  </div>
-  </div>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+     <h2>Welcome to Brazil!</h2>
+     <div>
+      {status === 'loading' && <Skeleton number={10} />}
+      {status === 'success' && pokemons?.map((pokemon, index) => <Pokemon 
+      image={pokemon.imageUrl} 
+      name={pokemon.name} 
+      key={index}/>)}
+     </div>
+    </main>
   )
 }
 
