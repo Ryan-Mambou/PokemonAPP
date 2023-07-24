@@ -40,6 +40,7 @@ export default function Home() {
       name={pokemon.name} 
       key={index}/>)}
      </div>
+     <button className='rounded-full mt-3 border-2 border-blue-400 py-1 px-8 bg-yellow-300 cursor-pointer shadow-lg'>Load more!</button>
     </main>
   )
 }
