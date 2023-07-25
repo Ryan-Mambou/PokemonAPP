@@ -31,18 +31,19 @@ export default function Home() {
   const {
     data : pokemons,
     error,
+    pageParams,
     fetchNextPage,
     hasNextPage,
     isFetching,
     isFetchingNextPage,
     status,
   } = useInfiniteQuery({
-    queryKey: ['ppkemons'],
+    queryKey: ['pokemons'],
     queryFn: getPokemons,
     getNextPageParam: (lastPage, allPages) => {
       console.log("allPages ", allPages)
       const nextPage =
-        lastPage.length === 20 ? allPages.length + 19 : undefined;
+        lastPage.length === 20 ? allPages.length * 20 : undefined;
         console.log("nextPage", nextPage)
       return nextPage;
     },
