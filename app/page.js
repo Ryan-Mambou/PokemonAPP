@@ -14,7 +14,9 @@ async function getPokemons({ pageParam = 0 }){
   }
   const data = await res.json()
   let filtered = await data.results.map((pokemon, index) => {
-    let paddedIndex = pageParam === 0 ? ('00' + (index + 1)).slice(-3) : ('00' + ((index * pageParam) + 1)).slice(-3)
+    let paddedIndex = pageParam === 0 ? ('00' + (index + 1)).slice(-3) : ('00' + (index + 1 + pageParam)).slice(-3)
+    console.table('index', index)
+    console.table('paddedIndex', paddedIndex)
     //let paddedIndex = ('00' + (index * pageParam + 1)).slice(-3)
     const image = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedIndex}.png`
     return {
