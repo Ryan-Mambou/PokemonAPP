@@ -14,7 +14,7 @@ async function getPokemons({ pageParam = 0 }){
   }
   const data = await res.json()
   let filtered = await data.results.map((pokemon, index) => {
-    let paddedIndex = pageParam === 0 ? ('00' + (index + 1)).slice(-3) : ('00' + (index * pageParam + 1)).slice(-3)
+    let paddedIndex = pageParam === 0 ? ('00' + (index + 1)).slice(-3) : ('00' + ((index * pageParam) + 1)).slice(-3)
     //let paddedIndex = ('00' + (index * pageParam + 1)).slice(-3)
     const image = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedIndex}.png`
     return {
@@ -57,7 +57,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
      <Image src={pokemonLogo} alt='Pokemon logo' width={150} height={150} className='objet-cover'/>
      <h2 className='mt-4'>Welcome to Brazil!</h2>
-     <div className='w-full md:w-10/12 m-auto flex mt-5 mb-5 flex-col md:grid md:grid-cols-3 md:grid-row-1 md:items-center gap-4 items-center'>
+     <div className='w-full md:w-10/12 m-auto flex mt-5 mb-5 flex-col md:grid md:grid-cols-3 md:grid-row-1 md:items-center gap-4'>
       {status === 'loading' && <Skeleton number={15} />}
       {status === 'success' && pokemons.pages?.map(page => 
       page.map((pokemon, index) => 
