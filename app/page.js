@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
-import Skeleton from '@/components/Skeleton'
-import Pokemon from '@/Components/Pokemon'
+import Skeleton from '../Components/Skeleton'
+import Pokemon from '../Components/Pokemon'
 import pokemonLogo from '../public/pokemonLogo.png'
 import { useQuery, useInfiniteQuery } from '@tanstack/react-query'
 
@@ -47,8 +47,6 @@ export default function Home() {
       return nextPage;
     },
   })
-
-
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
